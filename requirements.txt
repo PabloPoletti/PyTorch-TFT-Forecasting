@@ -1,0 +1,45 @@
+# PyTorch TFT Forecasting - Professional Time Series Project 2025
+# Core PyTorch Forecasting framework
+pytorch-forecasting>=1.0.0
+pytorch-lightning>=2.0.0
+torch>=2.0.0
+
+# Dashboard and visualization
+streamlit>=1.39.0
+plotly>=5.24.0
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Advanced models
+transformers>=4.30.0
+timm>=0.9.0
+
+# Optimization
+optuna>=3.6.0
+ray[tune]>=2.9.0
+hyperopt>=0.2.7
+
+# Feature engineering
+category-encoders>=2.6.0
+feature-engine>=1.6.0
+
+# Model interpretation
+shap>=0.44.0
+captum>=0.6.0
+
+# Statistical analysis
+scipy>=1.14.0
+statsmodels>=0.14.0
+
+# Data processing
+pyarrow>=15.0.0
+polars>=0.20.0
+
+# Monitoring
+mlflow>=2.11.0
+wandb>=0.16.0
+tensorboard>=2.15.0
+
+# Utilities
+tqdm>=4.66.0
+python-dotenv>=1.0.0
