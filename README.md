@@ -26,10 +26,20 @@ Advanced deep learning time series forecasting using PyTorch Forecasting and Tem
 
 ## 🛠️ Installation & Usage
 
-### Prerequisites
+### ⚠️ Required Libraries
+**This project specifically requires PyTorch Forecasting to function properly:**
+
 ```bash
+# Core PyTorch Forecasting libraries - REQUIRED
+pip install pytorch-forecasting
+pip install torch
+pip install pytorch-lightning
+
+# Or install all requirements
 pip install -r requirements.txt
 ```
+
+**Note:** Without PyTorch Forecasting, the TFT analysis cannot proceed. The project will exit with clear installation instructions if dependencies are missing.
 
 ### Run Analysis
 ```bash
