@@ -1,22 +1,21 @@
-# PyTorch TFT Forecasting - Professional Time Series Analysis
-# Core requirements (basic analysis without deep learning)
+# PyTorch TFT Forecasting - REQUIRED LIBRARIES
+# This project specifically demonstrates Temporal Fusion Transformer capabilities
+
+# Core PyTorch Forecasting libraries - REQUIRED
+pytorch-forecasting>=1.0.0
+pytorch-lightning>=2.0.0
+torch>=2.0.0
+
+# Supporting libraries
 pandas>=2.2.0
 numpy>=1.26.0
-matplotlib>=3.5.0
-seaborn>=0.11.0
 plotly>=5.24.0
-yfinance>=0.2.32
-scikit-learn>=1.5.0
-scipy>=1.14.0
+transformers>=4.30.0
+timm>=0.9.0
 optuna>=3.6.0
-requests>=2.31.0
-tqdm>=4.66.0
+scipy>=1.14.0
+statsmodels>=0.14.0
+scikit-learn>=1.5.0
 
-# Optional PyTorch requirements (install manually if needed)
-# For full TFT functionality, install:
-# pip install torch pytorch-lightning pytorch-forecasting
-# 
-# torch>=2.0.0
-# pytorch-lightning>=2.0.0
-# pytorch-forecasting>=1.0.0
-# transformers>=4.30.0
+# Note: This project requires PyTorch Forecasting to function properly.
+# Without these libraries, the TFT analysis cannot proceed.

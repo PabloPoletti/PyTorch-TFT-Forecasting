@@ -42,8 +42,7 @@ try:
 except ImportError as e:
     print(f"Warning: PyTorch not installed: {e}")
 
-# PyTorch Forecasting imports
-PYTORCH_FORECASTING_AVAILABLE = False
+# PyTorch Forecasting imports - REQUIRED for this analysis
 try:
     from pytorch_forecasting import (
         TimeSeriesDataSet, TemporalFusionTransformer, Baseline,
@@ -55,15 +54,16 @@ try:
     from pytorch_forecasting.models.temporal_fusion_transformer.tuning import optimize_hyperparameters
     import pytorch_forecasting
     print(f"PyTorch Forecasting version: {pytorch_forecasting.__version__}")
-    PYTORCH_FORECASTING_AVAILABLE = True
 except ImportError as e:
-    print(f"Warning: PyTorch Forecasting not installed: {e}")
-    print("Install with: pip install pytorch-forecasting")
-    # Create dummy classes for type hints
-    class TemporalFusionTransformer:
-        pass
-    class TimeSeriesDataSet:
-        pass
+    print("❌ CRITICAL ERROR: PyTorch Forecasting library not installed!")
+    print(f"Missing: {e}")
+    print("\n🔧 INSTALLATION REQUIRED:")
+    print("pip install pytorch-forecasting")
+    print("pip install torch")
+    print("pip install pytorch-lightning")
+    print("\n📖 This project specifically demonstrates Temporal Fusion Transformer capabilities.")
+    print("Without PyTorch Forecasting, the analysis cannot proceed.")
+    exit(1)
 
 warnings.filterwarnings('ignore')
 
