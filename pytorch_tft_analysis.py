@@ -43,6 +43,7 @@ except ImportError as e:
     print(f"Warning: PyTorch not installed: {e}")
 
 # PyTorch Forecasting imports
+PYTORCH_FORECASTING_AVAILABLE = False
 try:
     from pytorch_forecasting import (
         TimeSeriesDataSet, TemporalFusionTransformer, Baseline,
@@ -54,9 +55,15 @@ try:
     from pytorch_forecasting.models.temporal_fusion_transformer.tuning import optimize_hyperparameters
     import pytorch_forecasting
     print(f"PyTorch Forecasting version: {pytorch_forecasting.__version__}")
+    PYTORCH_FORECASTING_AVAILABLE = True
 except ImportError as e:
     print(f"Warning: PyTorch Forecasting not installed: {e}")
     print("Install with: pip install pytorch-forecasting")
+    # Create dummy classes for type hints
+    class TemporalFusionTransformer:
+        pass
+    class TimeSeriesDataSet:
+        pass
 
 warnings.filterwarnings('ignore')
 
@@ -567,9 +574,13 @@ class PyTorchTFTAnalysis:
         
         print(f"✅ Created {len(self.tft_datasets)} TFT datasets")
     
-    def create_tft_models(self) -> Dict[str, TemporalFusionTransformer]:
+    def create_tft_models(self) -> Dict[str, Union[TemporalFusionTransformer, None]]:
         """Create TFT models with different configurations"""
         print("\n⚡ Creating Temporal Fusion Transformer models...")
+        
+        if not PYTORCH_FORECASTING_AVAILABLE:
+            print("⚠️ PyTorch Forecasting not available. Skipping TFT model creation.")
+            return {}
         
         models = {}
         
